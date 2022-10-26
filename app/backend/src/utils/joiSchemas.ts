@@ -1,4 +1,4 @@
-import Joi from 'joi';
+import * as Joi from 'joi';
 import { StatusCodes } from 'http-status-codes';
 import HttpError from './httpError';
 

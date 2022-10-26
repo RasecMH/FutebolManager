@@ -16,7 +16,7 @@ export const validateToken = async (token: string | undefined) => {
     return id as JwtPayload;
   } catch (error) {
     if (error instanceof Error) {
-      throw new HttpError(401, 'Invalid token');
+      throw new HttpError(401, 'Token must be a valid token');
     }
   }
 };
