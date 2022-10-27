@@ -13,7 +13,7 @@ module.exports = {
         allowNull: false,
         foreignKey: true,
         references: {
-          model: 'teams',
+          model: 'Team',
           key: 'id',
         },
         onUpdate: 'CASCADE',
@@ -30,7 +30,7 @@ module.exports = {
         allowNull: false,
         foreignKey: true,
         references: {
-          model: 'teams',
+          model: 'Team',
           key: 'id',
         },
         onUpdate: 'CASCADE',
