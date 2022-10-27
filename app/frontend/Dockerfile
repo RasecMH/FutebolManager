@@ -3,5 +3,4 @@ WORKDIR /app-frontend
 COPY . .
 
 RUN npm install
-ENTRYPOINT [ "npm" ]
-CMD [ "start" ]
+CMD [ "npm", "start" ]
