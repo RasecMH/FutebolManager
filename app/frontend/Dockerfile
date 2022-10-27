@@ -4,8 +4,10 @@ WORKDIR /app-frontend
 
 EXPOSE 3000
 
+COPY package* ./
+
+RUN ["npm",  "install"]
+
 COPY . .
 
-RUN npm install
-
-CMD [ "npm", "start" ]
+CMD ["npm", "start"]
