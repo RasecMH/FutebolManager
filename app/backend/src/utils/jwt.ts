@@ -14,7 +14,7 @@ export const validateToken = async (token: string) => {
 
   try {
     const payload = verify(token, process.env.JWT_SECRET as string) as JwtPayloadInterface;
-    return payload.role;
+    return payload;
   } catch (error) {
     if (error instanceof Error) {
       throw new HttpError(401, 'Token must be a valid token');

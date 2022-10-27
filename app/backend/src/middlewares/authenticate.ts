@@ -11,8 +11,9 @@ const authenticate = async (req: Request, res: Response, next: NextFunction) => 
       throw new HttpError(StatusCodes.UNAUTHORIZED, 'Token must be a valid token');
     }
 
-    const role = await validateToken(token);
-    res.status(200).json({ role });
+    const payload = await validateToken(token);
+    req.body.role = payload?.role;
+    next();
   } catch (error) {
     next(error);
   }

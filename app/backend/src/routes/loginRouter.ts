@@ -7,6 +7,6 @@ const loginRouter = Router();
 const controller = new UserController();
 
 loginRouter.post('/', validateLoginFields, controller.login);
-loginRouter.get('/validate', authenticate);
+loginRouter.get('/validate', authenticate, controller.getRole);
 
 export default loginRouter;
