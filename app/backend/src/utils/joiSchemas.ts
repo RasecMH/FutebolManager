@@ -5,14 +5,14 @@ import HttpError from './httpError';
 const ALLFIELDSMUSTBEFILLED = 'All fields must be filled';
 
 export const loginSchema = Joi.object({
-  email: Joi.string().required()
-    .error(new HttpError(StatusCodes.BAD_REQUEST, ALLFIELDSMUSTBEFILLED))
-    .email()
-    .error(new HttpError(StatusCodes.BAD_REQUEST, 'Invalid email format')),
-  password: Joi.string().required()
-    .error(new HttpError(StatusCodes.BAD_REQUEST, ALLFIELDSMUSTBEFILLED))
-    .min(6)
-    .error(new HttpError(StatusCodes.BAD_REQUEST, 'Password need at least 6 characters')),
+  email: Joi.string().email().required().messages({
+    'any.required': ALLFIELDSMUSTBEFILLED,
+    'string.empty': ALLFIELDSMUSTBEFILLED,
+  }),
+  password: Joi.string().required().min(6).messages({
+    'any.required': ALLFIELDSMUSTBEFILLED,
+    'string.empty': ALLFIELDSMUSTBEFILLED,
+  }),
 });
 
 export const matchesSchema = Joi.object({
