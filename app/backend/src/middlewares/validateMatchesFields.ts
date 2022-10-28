@@ -9,7 +9,7 @@ const validateMatchesFields = (req: Request, res: Response, next: NextFunction) 
 
   if (payload.awayTeam === payload.homeTeam) {
     throw new HttpError(
-      StatusCodes.BAD_REQUEST,
+      StatusCodes.UNPROCESSABLE_ENTITY,
       'It is not possible to create a match with two equal teams',
     );
   }
