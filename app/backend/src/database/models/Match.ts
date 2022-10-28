@@ -8,7 +8,14 @@ export default class Match extends Model {
   awayTeam: number;
   homeTeamGoals: number;
   awayTeamGoals: number;
-  inProgress: number;
+  inProgress: boolean;
+  teamHome?: {
+    teamName: string;
+  };
+
+  teamAway?: {
+    teamName: string;
+  };
 }
 
 Match.init({
