@@ -38,20 +38,15 @@ const compareTeam = (match: IMatch, id: number) => {
   };
 };
 
-const verifyVictory = (match: IMatch, id: number) => {
-  const { actualTeam, enemyTeam } = compareTeam(match, id);
+const verifyVictory = (actualTeam: number, enemyTeam: number) => {
   if (actualTeam > enemyTeam) {
     results.totalPoints += 3;
     results.totalVictories += 1;
-    results.goalsFavor += actualTeam;
-    results.goalsOwn += enemyTeam;
   } else if (actualTeam < enemyTeam) {
     results.totalLosses += 1;
   } else {
     results.totalPoints += 1;
     results.totalDraws += 1;
-    results.goalsFavor += actualTeam;
-    results.goalsOwn += enemyTeam;
   }
 };
 
@@ -66,8 +61,11 @@ export const sortResults = (res: ILeaderboard[]) => res.sort((a, b) => {
 
 const getMatchesResults = (matches: IMatch[], id: number) => {
   matches.forEach((match) => {
+    const { actualTeam, enemyTeam } = compareTeam(match, id);
     results.totalGames += 1;
-    verifyVictory(match, id);
+    verifyVictory(actualTeam, enemyTeam);
+    results.goalsFavor += actualTeam;
+    results.goalsOwn += enemyTeam;
   });
 
   results.goalsBalance = results.goalsFavor - results.goalsOwn;
