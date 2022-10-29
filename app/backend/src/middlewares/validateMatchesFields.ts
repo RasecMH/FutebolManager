@@ -18,4 +18,3 @@ const validateMatchesFields = (req: Request, res: Response, next: NextFunction) 
 };
 
 export default validateMatchesFields;
-// force
