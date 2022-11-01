@@ -12,8 +12,11 @@ const authenticate = async (req: Request, res: Response, next: NextFunction) => 
     }
 
     const payload = await validateToken(token);
-    req.body.role = payload?.role;
-    next();
+    if (payload.role) {
+      req.body.role = payload.role;
+      return next();
+    }
+    throw new HttpError(StatusCodes.INTERNAL_SERVER_ERROR, 'Erro ao verificar token');
   } catch (error) {
     next(error);
   }
