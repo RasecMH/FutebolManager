@@ -71,7 +71,7 @@ const getMatchesResults = (matches, id) => {
     });
     results.goalsBalance = results.goalsFavor - results.goalsOwn;
     results.efficiency = ((results.totalPoints / (results.totalGames * 3)) * 100).toFixed(2);
-    const newResults = Object.assign({}, results);
+    const newResults = { ...results };
     resultsReset();
     return newResults;
 };
