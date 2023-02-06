@@ -4,14 +4,14 @@
   "public": true,
   "builds": [
     {
-      "src": "api/index.js",
+      "src": "build/index.js",
       "use": "@vercel/node"
     }
   ],
   "routes": [
     {
       "src": "/(.*)",
-      "dest": "api/index.js"
+      "dest": "build/index.js"
     }
   ]
 }
