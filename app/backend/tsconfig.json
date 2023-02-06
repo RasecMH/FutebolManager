@@ -4,7 +4,7 @@
     "module": "commonjs",
     "sourceMap": true,
     "outDir": "./build",
-    "rootDir": "./src",
+    "rootDir": "./api",
     "strict": true,
     "moduleResolution": "node",
     "baseUrl": ".",
@@ -18,6 +18,6 @@
       "*": ["node_modules/*"]
     }
   },
-  "include": ["src/**/*"],
-  "exclude": ["src/tests"]
+  "include": ["api/**/*"],
+  "exclude": ["api/tests"]
 }
