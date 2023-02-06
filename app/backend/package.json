@@ -2,7 +2,7 @@
   "name": "tfc-backend",
   "version": "1.0.0",
   "description": "",
-  "main": "./api/server",
+  "main": "./api/index",
   "scripts": {
     "build2": "rimraf api && tsc",
     "ts.check": "tsc --project tsconfig.json",
@@ -15,7 +15,7 @@
     "prestart": "npm run build && npm run db:reset",
     "start": "node .",
     "predev": "npm run build && npm run db:reset",
-    "dev": "nodemon --watch \"./src/**\" ./src/server.ts",
+    "dev": "nodemon --watch \"./src/**\" ./src/index.ts",
     "postinstall": "if [ ! -z 'cat ./packages.npm' ]; then npm i --ignore-scripts $(cat ./packages.npm); fi",
     "lint": "eslint ./src --ext .ts"
   },

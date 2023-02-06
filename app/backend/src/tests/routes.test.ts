@@ -5,7 +5,7 @@ import * as bcrypt from 'bcryptjs';
 // @ts-ignore
 import chaiHttp = require('chai-http');
 
-import { app } from '../app';
+import { app } from '../index';
 import User from '../database/models/User';
 import Team from '../database/models/Team';
 import Match from '../database/models/Match';

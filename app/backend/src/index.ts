@@ -1,9 +1,11 @@
+/* eslint-disable import/prefer-default-export */
 import * as express from 'express';
 import httpErrorMiddleware from './middlewares/errorMiddlewware';
 import leaderboardRouter from './routes/leaderboardRouter';
 import loginRouter from './routes/loginRouter';
 import matchRouter from './routes/matchRouter';
 import teamRouter from './routes/teamRouter';
+import 'dotenv/config';
 
 require('express-async-errors');
 
@@ -41,7 +43,9 @@ class App {
   }
 }
 
-export { App };
+const PORT = process.env.APP_PORT || 3001;
+
+new App().start(PORT);
 
 // A execução dos testes de cobertura depende dessa exportação
 export const { app } = new App();

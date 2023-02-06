@@ -1,12 +1,12 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.app = exports.App = void 0;
 const express = require("express");
 const errorMiddlewware_1 = require("./middlewares/errorMiddlewware");
 const leaderboardRouter_1 = require("./routes/leaderboardRouter");
 const loginRouter_1 = require("./routes/loginRouter");
 const matchRouter_1 = require("./routes/matchRouter");
 const teamRouter_1 = require("./routes/teamRouter");
+require("dotenv/config");
 require('express-async-errors');
 class App {
     constructor() {
@@ -34,7 +34,8 @@ class App {
         this.app.listen(PORT, () => console.log(`Running on port ${PORT}`));
     }
 }
-exports.App = App;
+const PORT = process.env.APP_PORT || 3001;
+new App().start(PORT);
 // A execução dos testes de cobertura depende dessa exportação
-exports.app = new App().app;
+// export const { app } = new App();
 //# sourceMappingURL=index.js.map
