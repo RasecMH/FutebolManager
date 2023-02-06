@@ -2,7 +2,7 @@
   "name": "tfc-backend",
   "version": "1.0.0",
   "description": "",
-  "main": "./build/server",
+  "main": "./api/server",
   "scripts": {
     "build": "/bin/sh tsc_eval.sh",
     "test": "mocha -r ts-node/register ./src/tests/*$NAME*.{test,spec}.ts -t 10000 --exit",
