@@ -35,10 +35,6 @@ class App {
     }
 }
 exports.App = App;
-function vercelTeste() {
-    return 'pass';
-}
-exports.default = vercelTeste;
 // A execução dos testes de cobertura depende dessa exportação
 exports.app = new App().app;
 //# sourceMappingURL=index.js.map

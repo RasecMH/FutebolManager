@@ -41,12 +41,6 @@ class App {
   }
 }
 
-function vercelTeste() {
-  return 'pass';
-}
-
-export default vercelTeste;
-
 export { App };
 
 // A execução dos testes de cobertura depende dessa exportação
