@@ -4,9 +4,9 @@
   "description": "",
   "main": "./api/server",
   "scripts": {
-    "build": "rimraf dist && tsc",
+    "build": "rimraf api && tsc",
     "ts.check": "tsc --project tsconfig.json",
-    "add-build": "git add dist",
+    "add-build": "git add api",
     "build2": "/bin/sh tsc_eval.sh",
     "test": "mocha -r ts-node/register ./src/tests/*$NAME*.{test,spec}.ts -t 10000 --exit",
     "test:coverage": "nyc npm run test",
