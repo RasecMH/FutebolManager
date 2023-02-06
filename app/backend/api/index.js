@@ -34,7 +34,7 @@ class App {
         this.app.listen(PORT, () => console.log(`Running on port ${PORT}`));
     }
 }
-exports.default = App;
+exports.default = new App();
 // A execução dos testes de cobertura depende dessa exportação
 exports.app = new App().app;
 //# sourceMappingURL=index.js.map
