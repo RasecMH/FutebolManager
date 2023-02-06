@@ -8,6 +8,7 @@ const config: Options = {
   host: process.env.DB_HOST || 'localhost',
   port: Number(process.env.DB_PORT) || 3002,
   dialect: 'mysql',
+  dialectModule: require('mysql2'),
   dialectOptions: {
     timezone: 'Z',
   },
