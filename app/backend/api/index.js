@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.app = exports.App = void 0;
+exports.app = void 0;
 const express = require("express");
 const errorMiddlewware_1 = require("./middlewares/errorMiddlewware");
 const leaderboardRouter_1 = require("./routes/leaderboardRouter");
@@ -34,7 +34,7 @@ class App {
         this.app.listen(PORT, () => console.log(`Running on port ${PORT}`));
     }
 }
-exports.App = App;
+exports.default = App;
 // A execução dos testes de cobertura depende dessa exportação
 exports.app = new App().app;
 //# sourceMappingURL=index.js.map
