@@ -4,7 +4,10 @@
   "description": "",
   "main": "./api/server",
   "scripts": {
-    "build": "/bin/sh tsc_eval.sh",
+    "build": "rimraf dist && tsc",
+    "ts.check": "tsc --project tsconfig.json",
+    "add-build": "git add dist",
+    "build2": "/bin/sh tsc_eval.sh",
     "test": "mocha -r ts-node/register ./src/tests/*$NAME*.{test,spec}.ts -t 10000 --exit",
     "test:coverage": "nyc npm run test",
     "test:coverage:json": "nyc --reporter=json-summary npm run test",
@@ -16,6 +19,11 @@
     "postinstall": "if [ ! -z 'cat ./packages.npm' ]; then npm i --ignore-scripts $(cat ./packages.npm); fi",
     "lint": "eslint ./src --ext .ts"
   },
+  "pre-commit": [
+    "ts.check",
+    "build",
+    "add-build"
+  ],
   "keywords": [],
   "author": "",
   "license": "ISC",
@@ -45,6 +53,8 @@
     "mocha": "9.2.1",
     "nodemon": "2.0.15",
     "nyc": "15.1.0",
+    "pre-commit": "^1.2.2",
+    "rimraf": "^4.1.2",
     "sequelize-cli": "6.3.0",
     "sinon": "13.0.1",
     "ts-node": "10.7.0",
