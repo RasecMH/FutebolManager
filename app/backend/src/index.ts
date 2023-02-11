@@ -1,5 +1,6 @@
 /* eslint-disable import/prefer-default-export */
 import * as express from 'express';
+import * as cors from 'cors';
 import httpErrorMiddleware from './middlewares/errorMiddlewware';
 import leaderboardRouter from './routes/leaderboardRouter';
 import loginRouter from './routes/loginRouter';
@@ -14,6 +15,7 @@ class App {
 
   constructor() {
     this.app = express();
+    this.app.use(cors());
 
     this.config();
 

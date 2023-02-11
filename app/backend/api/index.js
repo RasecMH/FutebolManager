@@ -1,6 +1,9 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.app = void 0;
+/* eslint-disable import/prefer-default-export */
 const express = require("express");
+const cors = require("cors");
 const errorMiddlewware_1 = require("./middlewares/errorMiddlewware");
 const leaderboardRouter_1 = require("./routes/leaderboardRouter");
 const loginRouter_1 = require("./routes/loginRouter");
@@ -11,6 +14,7 @@ require('express-async-errors');
 class App {
     constructor() {
         this.app = express();
+        this.app.use(cors());
         this.config();
         // Não remover essa rota
         this.app.get('/', (req, res) => res.json({ ok: true }));
@@ -37,5 +41,5 @@ class App {
 const PORT = process.env.APP_PORT || 3001;
 new App().start(PORT);
 // A execução dos testes de cobertura depende dessa exportação
-// export const { app } = new App();
+exports.app = new App().app;
 //# sourceMappingURL=index.js.map
