@@ -1,6 +1,5 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.app = void 0;
 /* eslint-disable import/prefer-default-export */
 const express = require("express");
 const cors = require("cors");
@@ -14,6 +13,7 @@ require('express-async-errors');
 class App {
     constructor() {
         this.app = express();
+        this.app.use(cors());
         this.config();
         // Não remover essa rota
         this.app.get('/', (req, res) => res.json({ ok: true }));
@@ -26,7 +26,6 @@ class App {
             next();
         };
         this.app.use(express.json());
-        this.app.use(cors());
         this.app.use(accessControl);
         this.app.use('/login', loginRouter_1.default);
         this.app.use('/teams', teamRouter_1.default);
@@ -40,6 +39,6 @@ class App {
 }
 const PORT = process.env.APP_PORT || 3001;
 new App().start(PORT);
-// A execução dos testes de cobertusra depende dessa exportação
-// exports.app = new App().app;
+// A execução dos testes de cobertura depende dessa exportação
+// export const { app } = new App();
 //# sourceMappingURL=index.js.map
