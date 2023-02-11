@@ -40,6 +40,6 @@ class App {
 }
 const PORT = process.env.APP_PORT || 3001;
 new App().start(PORT);
-// A execução dos testes de cobertura depende dessa exportação
+// A execução dos testes de cobertusra depende dessa exportação
 // exports.app = new App().app;
 //# sourceMappingURL=index.js.map
