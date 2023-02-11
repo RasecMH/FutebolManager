@@ -14,7 +14,6 @@ require('express-async-errors');
 class App {
     constructor() {
         this.app = express();
-        this.app.use(cors());
         this.config();
         // Não remover essa rota
         this.app.get('/', (req, res) => res.json({ ok: true }));
@@ -26,12 +25,8 @@ class App {
             res.header('Access-Control-Allow-Headers', '*');
             next();
         };
-        if(_req.method === 'OPTIONS') {
-            return res.status(200).json(({
-                body: "OK"
-            }))
-        }
         this.app.use(express.json());
+        this.app.use(cors());
         this.app.use(accessControl);
         this.app.use('/login', loginRouter_1.default);
         this.app.use('/teams', teamRouter_1.default);
