@@ -26,6 +26,11 @@ class App {
             res.header('Access-Control-Allow-Headers', '*');
             next();
         };
+        if(_req.method === 'OPTIONS') {
+            return res.status(200).json(({
+                body: "OK"
+            }))
+        }
         this.app.use(express.json());
         this.app.use(accessControl);
         this.app.use('/login', loginRouter_1.default);
